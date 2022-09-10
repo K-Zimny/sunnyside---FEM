@@ -1,0 +1,632 @@
+/* ============================================================================ */
+/* Reset */
+/* ============================================================================ */
+
+/*
+ * [Modified] Modern CSS Reset
+ * @link https://github.com/hankchizljaw/modern-css-reset
+*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}
+
+/* Make images easier to work with */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: initial;
+  }
+}
+
+/* ============================================================================ */
+/* Custom Properties*/
+/* ============================================================================ */
+
+:root {
+  /* colors */
+  --clr-pri-soft-red: 7, 99%, 70%;
+  --clr-pri-yellow: 51, 100%, 49%;
+  --clr-pri-dark-desaturated-cyan: 167, 40%, 24%;
+  --clr-pri-dark-blue: 198, 62%, 26%;
+  --clr-pri-dark-moderate-cyan: 180, 33%, 70%;
+
+  --clr-ntl-very-dark-desaturated-blue: 212, 27%, 19%;
+  --clr-ntl-very-dark-grayish-blue: 213, 9%, 39%;
+  --clr-ntl-dark-grayish-blue: 232, 10%, 55%;
+  --clr-ntl-grayish-blue: 210, 4%, 67%;
+  --clr-ntl-white: 0, 0%, 100%;
+
+  --fs-body: 1.125rem;
+
+  --ff-san: "Barlow", sans-serif;
+  --ff-serif: "Fraunces", serif;
+
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-900: 900;
+
+  /* Margin for all sections set here */
+  --mobile-section-margin-spacer: 4rem;
+}
+
+/* ============================================================================ */
+/* General Styles*/
+/* ============================================================================ */
+
+* {
+  outline: 0;
+}
+
+body {
+  font-family: var(--ff-san);
+  font-size: var(--fs-body);
+}
+
+.container {
+  max-width: 1920px;
+  width: 90%;
+  margin-inline: auto;
+}
+
+/* utility */
+
+.is-hidden {
+  display: none;
+}
+
+.img-mobile {
+  display: block;
+  width: 100%;
+}
+
+.img-desktop {
+  display: none;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1023px) {
+  .img-mobile {
+    display: none;
+  }
+
+  .img-desktop {
+    display: block;
+  }
+}
+
+/* ============================================================================ */
+/* Header*/
+/* ============================================================================ */
+
+header {
+  position: absolute;
+  z-index: 999;
+  top: 2rem;
+  width: 100%;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* logo */
+
+header .logo {
+  object-fit: contain;
+}
+
+header .logo:hover,
+header .logo:focus,
+header .logo:active {
+  scale: 1.5;
+}
+
+/* button */
+
+header button {
+  background: none;
+  border: none;
+  width: 30px;
+  padding: 0;
+}
+
+/* nav */
+
+.main-nav {
+  position: absolute;
+  top: 75px;
+  background: hsl(var(--clr-ntl-white));
+  width: 90%;
+  text-align: center;
+  z-index: 999;
+  padding-bottom: 2rem;
+}
+
+.main-nav ul {
+  padding: 0;
+}
+
+.main-nav li {
+  list-style: none;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: hsl(var(--clr-ntl-dark-grayish-blue));
+  display: inline-block;
+  padding: 1.25rem 0;
+  font-size: 22px;
+  font-weight: var(--fw-700);
+}
+
+.main-nav a:hover,
+.main-nav a:focus,
+.main-nav a:active {
+  color: hsl(var(--clr-pri-dark-blue));
+}
+
+.main-nav .contact-btn a {
+  background-color: hsl(var(--clr-pri-yellow));
+  color: hsl(var(--clr-pri-dark-blue));
+  text-transform: uppercase;
+  font-family: var(--ff-serif);
+  padding: 1.25rem 1.5rem;
+  border-radius: 100px;
+  font-size: 18px;
+}
+
+/* ear */
+
+.main-nav::after {
+  content: "";
+  position: absolute;
+  top: -9.4%;
+  right: 0;
+  width: 30px;
+  height: 34px;
+  background-color: inherit;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+/* ============================================================================ */
+/* Hero*/
+/* ============================================================================ */
+.hero {
+  position: relative;
+}
+
+.hero h1 {
+  position: absolute;
+  top: 23.5%;
+  left: 50%;
+  translate: -50%;
+
+  font-family: var(--ff-serif);
+  color: hsl(var(--clr-ntl-white));
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.8rem;
+  line-height: 3.5rem;
+  letter-spacing: 0.25rem;
+}
+
+.down-arrow {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  translate: -50%;
+}
+
+/* ============================================================================ */
+/* Body*/
+/* ============================================================================ */
+
+/* content with img left/right */
+
+.content-img-right .content,
+.content-img-left .content {
+  margin: var(--mobile-section-margin-spacer) auto;
+  text-align: center;
+}
+
+.content-img-right h2,
+.content-img-left h2 {
+  font-family: var(--ff-serif);
+  font-size: 2rem;
+  color: hsl(var(--clr-ntl-very-dark-desaturated-blue));
+  font-weight: var(--fw-900);
+  margin-bottom: 1.5rem;
+}
+
+.content-img-right p,
+.content-img-left p {
+  line-height: 2rem;
+  color: hsl(var(--clr-ntl-dark-grayish-blue));
+}
+
+.content-img-right p:last-of-type,
+.content-img-left p:last-of-type {
+  margin-bottom: 2.5rem;
+}
+
+.content-img-right a,
+.content-img-left a {
+  font-family: var(--ff-serif);
+  text-transform: uppercase;
+  font-weight: var(--fw-900);
+  color: hsl(var(--clr-ntl-very-dark-desaturated-blue));
+  text-decoration: none;
+}
+
+.underline-yellow,
+.underline-orange {
+  position: relative;
+  outline: 0;
+}
+
+.underline-yellow::after,
+.underline-orange::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  width: 132px;
+  height: 10px;
+  border-radius: 50px;
+  opacity: 50%;
+}
+
+.underline-yellow:hover::after,
+.underline-orange:hover::after,
+.underline-yellow:focus::after,
+.underline-orange:focus::after {
+  opacity: 100%;
+}
+
+.underline-yellow::after {
+  background-color: hsl(var(--clr-pri-yellow));
+}
+
+.underline-orange::after {
+  background-color: hsl(var(--clr-pri-soft-red));
+}
+
+/* content over img  */
+
+.content-over-img {
+  position: relative;
+}
+.content-over-img .content {
+  position: absolute;
+  bottom: var(--mobile-section-margin-spacer);
+  left: 50%;
+  translate: -50%;
+  text-align: center;
+}
+
+.content-over-img h2 {
+  font-family: var(--ff-serif);
+  font-weight: var(--fw-900);
+  margin-bottom: 1.75rem;
+}
+
+.content-over-img p {
+  margin-bottom: 0;
+}
+
+/* text alterations for the green and blue sections here */
+
+.content-over-img .is-green {
+  color: hsl(var(--clr-pri-dark-desaturated-cyan));
+}
+
+.content-over-img .is-blue {
+  color: hsl(var(--clr-pri-dark-blue));
+}
+
+/* Testimonials  */
+
+.testimonials {
+  margin: var(--mobile-section-margin-spacer) auto;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-family: var(--ff-serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: hsl(var(--clr-ntl-grayish-blue));
+}
+
+.testimonials .testimonial {
+  margin: var(--mobile-section-margin-spacer) auto;
+}
+
+.testimonials img {
+  margin-inline: auto;
+  margin-bottom: 35px;
+  border-radius: 50%;
+  width: 75px;
+}
+
+.testimonials .quote {
+  line-height: 2rem;
+  color: hsl(var(--clr-pri-dark-blue));
+}
+
+.testimonials b {
+  font-family: var(--ff-serif);
+  font-weight: var(--fw-900);
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.testimonials .position {
+  color: hsl(var(--clr-ntl-grayish-blue));
+  font-size: 16px;
+  margin-top: -10px;
+}
+
+/* Img Grid  */
+
+.img-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.img-grid img {
+  width: 100%;
+}
+
+/* ============================================================================ */
+/* Footer*/
+/* ============================================================================ */
+
+footer {
+  background-color: hsl(var(--clr-pri-dark-moderate-cyan));
+  padding: var(--mobile-section-margin-spacer) 0;
+}
+
+footer .logo svg {
+  margin-inline: auto;
+  display: block;
+  scale: 1.5;
+  margin-bottom: 3.5rem;
+}
+
+footer a {
+  color: hsl(var(--clr-pri-dark-desaturated-cyan));
+  text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus,
+footer a:active,
+footer svg:hover,
+footer svg:focus,
+footer svg:active {
+  color: hsl(var(--clr-ntl-white));
+}
+
+footer svg {
+  color: hsl(var(--clr-pri-dark-desaturated-cyan));
+}
+
+/* footer nav */
+
+footer .footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 0 2rem;
+  margin-bottom: 5rem;
+}
+
+footer .footer-nav li,
+footer .socials-footer li {
+  list-style: none;
+}
+
+footer .socials-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 0;
+}
+
+/* ============================================================================ */
+/*  */
+/* Media Query*/
+/*  */
+/* ============================================================================ */
+
+@media (min-width: 1023px) {
+  /* ============================================================================ */
+  /* Header*/
+  /* ============================================================================ */
+
+  /* logo */
+
+  header .logo {
+    scale: 1.25;
+  }
+
+  /* button */
+  header button {
+    display: none;
+  }
+  /* nav */
+  .main-nav {
+    all: unset;
+  }
+
+  .main-nav ul {
+    display: flex;
+  }
+
+  .main-nav li {
+    padding: 0 1.5rem;
+  }
+
+  .main-nav a {
+    color: hsl(var(--clr-ntl-white));
+  }
+
+  .main-nav .contact-btn a {
+    background-color: hsl(var(--clr-ntl-white));
+  }
+
+  .main-nav .contact-btn a:hover,
+  .main-nav .contact-btn a:active,
+  .main-nav .contact-btn a:focus {
+    background-color: #66ccff;
+    color: hsl(var(--clr-ntl-white));
+  }
+
+  /* ============================================================================ */
+  /* Hero*/
+  /* ============================================================================ */
+
+  .hero h1 {
+    top: 30%;
+  }
+
+  .down-arrow {
+    top: 45%;
+  }
+  /* ============================================================================ */
+  /* Body*/
+  /* ============================================================================ */
+
+  /* content with img left/right */
+
+  .content-img-right,
+  .content-img-left {
+    display: flex;
+  }
+
+  .content-img-right .img,
+  .content-img-left .img,
+  .content-img-right .content,
+  .content-img-left .content {
+    flex: 50%;
+  }
+
+  /* inner padding */
+  .content-img-right .content,
+  .content-img-left .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0 6rem;
+    text-align: left;
+  }
+
+  /* content over img  */
+
+  .content-over-img-container {
+    display: flex;
+  }
+
+  .content-over-img {
+    flex: 50%;
+  }
+
+  .content-over-img p {
+    max-width: 400px;
+    margin-inline: auto;
+  }
+
+  /* Testimonials  */
+
+  .testimonials {
+    margin-top: 10rem;
+    margin-bottom: 6rem;
+  }
+
+  .testimonials-container {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .testimonial {
+    flex: 33%;
+  }
+
+  /* Img Grid  */
+
+  .img-grid {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* ============================================================================ */
+  /* Footer*/
+  /* ============================================================================ */
+
+  /* footer nav */
+}
